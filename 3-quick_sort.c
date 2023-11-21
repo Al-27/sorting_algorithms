@@ -18,6 +18,7 @@ void quick_sort(int *array, size_t size)
             tmp = array[hi];
             array[hi] = array[j];
             array[j] = tmp;
+            print_array(array,size);
         }
         if(array[j] < array[i] )
         {
