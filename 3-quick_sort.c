@@ -10,7 +10,7 @@ void quick_sort(int *array, size_t size)
 {
     int len = (int)size, i, j, hi = len - 1, tmp;
     
-    for(j = 0, i = 0;j < hi;j++)
+    for(j = 0, i = 0;j < hi;)
     {
         
         if(array[j] > array[hi])
@@ -18,6 +18,7 @@ void quick_sort(int *array, size_t size)
             tmp = array[hi];
             array[hi] = array[j];
             array[j] = tmp;
+            i = 0;
             print_array(array,size);
         }
         if(array[j] < array[i] )
@@ -34,7 +35,13 @@ void quick_sort(int *array, size_t size)
                 
             }
         }
+        else
+            i++;
         
+        if( i == j)
+        {
+            i = 0, j++;
+        }
         
     }
 }
