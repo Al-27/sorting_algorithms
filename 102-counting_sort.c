@@ -13,27 +13,28 @@ void counting_sort(int *array, size_t size)
     
     counter = malloc( sizeof(int) * (max_num+1) );
     memset(counter,0,max_num);
-    
-    for(; i < (int)size;i++)
+    if(size > 1 )
     {
-        counter[ array[i] ]++;
+        for(; i < (int)size;i++)
+        {
+            counter[ array[i] ]++;
+        }
+        for(i=0; i < max_num+1;i++)
+        {
+            counter[ i ] += counter[i-1];
+            printf("%d%s",counter[ i ], i < max_num ? ", ": "");
+        }
+        
+        for(i=0; i < (int)size;i++)
+        {
+            output[ counter[array[i]]-1 ] = array[i];
+            counter[array[i]]--;
+        }
+        for(i=0; i < (int)size;i++)
+        {
+            array[i] = output[ i ];
+        }
     }
-    for(i=0; i < max_num+1;i++)
-    {
-        counter[ i ] += counter[i-1];
-        printf("%d%s",counter[ i ], i < max_num ? ", ": "\n");
-    }
-    
-    for(i=0; i < (int)size;i++)
-    {
-        output[ counter[array[i]]-1 ] = array[i];
-        counter[array[i]]--;
-    }
-    for(i=0; i < (int)size;i++)
-    {
-        array[i] = output[ i ];
-    }
-    
     free(output);
     free(counter);
 }
@@ -42,7 +43,7 @@ void counting_sort(int *array, size_t size)
  * getMax - function
  * 
  * @array: Array of ints
- * @size: size
+ * @size: s
  * 
  * Return: int
 */
