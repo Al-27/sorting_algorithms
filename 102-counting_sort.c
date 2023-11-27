@@ -21,7 +21,7 @@ void counting_sort(int *array, size_t size)
     for(i=0; i < max_num+1;i++)
     {
         counter[ i ] += counter[i-1];
-        printf("%d%s",counter[ i ], i < max_num ? ", ": "");
+        printf("%d%s",counter[ i ], i < max_num ? ", ": "\n");
     }
     
     for(i=0; i < (int)size;i++)
