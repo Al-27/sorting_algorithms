@@ -43,7 +43,7 @@ void counting_sort(int *array, size_t size)
  * getMax - function
  * 
  * @array: Array of ints
- * @size: s
+ * @s: size
  * 
  * Return: int
 */
